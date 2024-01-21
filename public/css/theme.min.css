@@ -1,0 +1,21 @@
+/*!*******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/user.scss ***!
+  \*******************************************************************************************************************************************/
+/* in globals.css or equivilent global stylesheet within your app  */
+.navbar-nav .nav-link {
+  color: #345CFB !important;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #8b9ff0 !important;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  color: black !important;
+}
+
+.navbar-toggler:focus {
+  color: transparent;
+}
+
+/*# sourceMappingURL=theme.min.css.map*/
