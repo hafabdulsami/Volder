@@ -7,16 +7,25 @@ import Cards from "../../common/card/Cards";
 const ProductCategory = () => {
   const cardList = [
     {
-      card: <Cards img={collection.img1} overlay={true} />
+      card: <Cards img={collection.bit} overlay={true} />
     },
     {
-      card: <Cards img={collection.img2} overlay={true} />
+      card: <Cards img={collection.heatGun} overlay={true} />
     },
     {
-      card: <Cards img={collection.img3} overlay={true} />
+      card: <Cards img={collection.laminationGun} overlay={true} />
     },
     {
-      card: <Cards img={collection.img2} overlay={true} />
+      card: <Cards img={collection.lcdSeprater} overlay={true} />
+    },
+    {
+      card: <Cards img={collection.powerSupply} overlay={true} />
+    },
+    {
+      card: <Cards img={collection.solderWire} overlay={true} />
+    },
+    {
+      card: <Cards img={collection.solderingIron} overlay={true} />
     }
   ];
   return (

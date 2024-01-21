@@ -39,6 +39,6 @@ SampleSlider.propTypes = {
   spaceBetween: PropTypes.number,
   speed: PropTypes.number,
   breakPoints: PropTypes.object,
-  loop: PropTypes.number,
+  loop: PropTypes.bool,
   cardList: PropTypes.array
 };

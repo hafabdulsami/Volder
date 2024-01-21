@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PropTypes from "prop-types";
-
+import { useNavigate } from "react-router-dom";
 const Navcollapse = ({
   navBarClass,
   navBarStyle,
@@ -10,6 +10,7 @@ const Navcollapse = ({
   navStyle,
   items
 }) => {
+  const usenavigate = useNavigate();
   return (
     <Navbar.Collapse
       className={navBarClass}
@@ -19,7 +20,15 @@ const Navcollapse = ({
       <Nav className={`${navClass}`} style={navStyle}>
         {items.map((item, key) => {
           return (
-            <Nav.Link key={key} href={item.navigate}>
+            <Nav.Link
+              key={key}
+              href={item.navigate}
+              onClick={() => {
+                if (item.to) {
+                  usenavigate(item.to);
+                }
+              }}
+            >
               {item.label}
             </Nav.Link>
           );
