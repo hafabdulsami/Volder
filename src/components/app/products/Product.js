@@ -1,26 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Category from "../../common/category/Category";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { Form } from "react-bootstrap";
+import InputBar from "../../common/InputBar";
+import ProductCard from "./ProductCard";
 const Product = () => {
+  const [search, setSearch] = useState(0);
   return (
     <div>
       <Category />
-      <div className="">
-        <Form className="position-relative">
-          <Form.Control
-            type="search"
-            placeHolder="Search..."
-            aria-label="Search"
-            className="rounded-pill search-input"
-          />
-          <FontAwesomeIcon
-            icon="search"
-            className="position-absolute text-400 search-box-icon"
-          />
-        </Form>
-      </div>
+      <InputBar setSearch={setSearch} />
+      <ProductCard search={search} />
     </div>
   );
 };
