@@ -14,12 +14,17 @@ const Cards = ({
   buttontext,
   buttonStyle,
   buttonClass,
-  cardTitleClassname
+  cardTitleClassname,
+  onclick,
+  parameter
 }) => {
   return (
     <Card
       className=""
       style={cardStyle || { borderRadius: "25px", border: "none" }}
+      onClick={() => {
+        onclick(parameter);
+      }}
     >
       <Card.Img
         variant="top"
@@ -80,7 +85,9 @@ Cards.propTypes = {
   buttontext: PropTypes.string,
   buttonStyle: PropTypes.object,
   buttonClass: PropTypes.string,
-  cardTitleClassname: PropTypes.string
+  cardTitleClassname: PropTypes.string,
+  onclick: PropTypes.func,
+  parameter: PropTypes.any
 };
 
 export default Cards;

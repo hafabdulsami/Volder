@@ -3,31 +3,38 @@ import Container from "react-bootstrap/Container";
 import H3 from "../../common/heading/H3";
 import Slider from "../../common/slider/Slider";
 import collection from "../../../assets/collection";
-import Cards from "../../common/card/Cards";
 const ProductCategory = () => {
   const cardList = [
     {
-      card: <Cards img={collection.bit} overlay={true} />
+      img: collection.bit,
+      title: "Bit"
     },
     {
-      card: <Cards img={collection.heatGun} overlay={true} />
+      img: collection.heatGun,
+      title: "Heat Gun"
     },
     {
-      card: <Cards img={collection.laminationGun} overlay={true} />
+      img: collection.laminationGun,
+      title: "Lamination Gun"
     },
     {
-      card: <Cards img={collection.lcdSeprater} overlay={true} />
+      img: collection.lcdSeprater,
+      title: "LCD Separator"
     },
     {
-      card: <Cards img={collection.powerSupply} overlay={true} />
+      img: collection.powerSupply,
+      title: "Power Supply"
     },
     {
-      card: <Cards img={collection.solderWire} overlay={true} />
+      img: collection.solderWire,
+      title: "Solder Wire"
     },
     {
-      card: <Cards img={collection.solderingIron} overlay={true} />
+      img: collection.solderingIron,
+      title: "Soldering Iron"
     }
   ];
+
   return (
     <Container fluid>
       <H3 text={"Product Category"} />

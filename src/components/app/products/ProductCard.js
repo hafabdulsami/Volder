@@ -7,18 +7,24 @@ import Cards from "../../common/card/Cards";
 import collection from "../../../assets/collection";
 import CPagination from "../../common/CPagination";
 import Flex from "../../common/Flex";
-
+import { useNavigate } from "react-router-dom";
 const ProductCard = () => {
+  const Navigate = useNavigate();
   const productList = [
-    { img: collection.bit, title: "Bit" },
-    { img: collection.heatGun, title: "Heat Gun" },
-    { img: collection.laminationGun, title: "Lamination Gun" },
-    { img: collection.lcdSeprater, title: "LCD Separator" },
-    { img: collection.powerSupply, title: "Power Supply" },
-    { img: collection.solderWire, title: "Solder Wire" },
-    { img: collection.solderingIron, title: "Soldering Iron" }
+    { id: 1, img: collection.bit, title: "Bit" },
+    { id: 2, img: collection.heatGun, title: "Heat Gun" },
+    {
+      id: 3,
+      img: collection.laminationGun,
+      title: "Lamination Gun"
+    },
+    { id: 4, img: collection.lcdSeprater, title: "LCD Separator" },
+    { id: 5, img: collection.powerSupply, title: "Power Supply" },
+    { id: 6, img: collection.solderWire, title: "Solder Wire" },
+    { id: 7, img: collection.solderingIron, title: "Soldering Iron" }
   ];
-  const productsPerPage = 4;
+
+  const productsPerPage = 6;
   const totalPages = Math.ceil(productList.length / productsPerPage);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +39,9 @@ const ProductCard = () => {
   const handlePageChange = pageNumber => {
     setCurrentPage(pageNumber);
   };
-
+  const onClick = parameter => {
+    Navigate("/products/" + parameter);
+  };
   return (
     <Container fluid>
       <H3 text={"Products"} />
@@ -53,6 +61,8 @@ const ProductCard = () => {
                 }}
                 buttonClass={"bg-blue border-0 text-white w-100"}
                 cardTitleClassname={"fs-6 fw-bold"}
+                parameter={product.id}
+                onclick={onClick}
               />
             </Col>
           );
