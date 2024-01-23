@@ -3,7 +3,7 @@
 // Define various route paths used in the application
 const routes = {
   homePage: "/",
-  product: "/products/:_id",
+  product: "/products/:category",
   contactUs: "/contactUs"
   //add_sale: "/add-sale/:_id",
   //edit_sale: "/edit-sale/:_id",

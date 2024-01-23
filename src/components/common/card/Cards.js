@@ -16,12 +16,21 @@ const Cards = ({
   buttonClass,
   cardTitleClassname,
   onclick,
-  parameter
+  parameter,
+  width,
+  height
 }) => {
   return (
     <Card
       className=""
-      style={cardStyle || { borderRadius: "25px", border: "none" }}
+      style={
+        cardStyle || {
+          borderRadius: "25px",
+          border: "none",
+          width: "80px",
+          height: "80px"
+        }
+      }
       onClick={() => {
         onclick(parameter);
       }}
@@ -33,8 +42,8 @@ const Cards = ({
           borderRadius: "25px"
         }}
         src={img}
-        height={240}
-        width={384}
+        height={width || 240}
+        width={height || 384}
       />
       {overlay ? (
         <Card.ImgOverlay>
@@ -87,7 +96,9 @@ Cards.propTypes = {
   buttonClass: PropTypes.string,
   cardTitleClassname: PropTypes.string,
   onclick: PropTypes.func,
-  parameter: PropTypes.any
+  parameter: PropTypes.any,
+  width: PropTypes.number,
+  height: PropTypes.number
 };
 
 export default Cards;

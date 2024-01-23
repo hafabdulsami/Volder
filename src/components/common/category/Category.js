@@ -1,39 +1,76 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import H3 from "../../common/heading/H3";
+import Slider from "../../common/slider/Slider";
 import collection from "../../../assets/collection";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "../../../index.css";
-
-const Category = () => {
-  const imgList = [
-    collection.bit,
-    collection.heatGun,
-    collection.laminationGun,
-    collection.lcdSeprater,
-    collection.powerSupply,
-    collection.solderWire,
-    collection.solderingIron
+const ProductCategory = () => {
+  const cardList = [
+    {
+      img: collection.bit,
+      title: "Bit"
+    },
+    {
+      img: collection.heatGun,
+      title: "Heat Gun"
+    },
+    {
+      img: collection.laminationGun,
+      title: "Lamination Gun"
+    },
+    {
+      img: collection.lcdSeprater,
+      title: "LCD Separator"
+    },
+    {
+      img: collection.powerSupply,
+      title: "Power Supply"
+    },
+    {
+      img: collection.solderWire,
+      title: "Solder Wire"
+    },
+    {
+      img: collection.solderingIron,
+      title: "Soldering Iron"
+    }
   ];
 
   return (
-    <div className="w-100 my-4 overflow-auto no-scrollbar">
-      <Row
-        className="no-scrollbar"
-        style={{ gap: "50px", width: "80rem" }}
-      >
-        {imgList.map((img, key) => (
-          <Col key={key}>
-            <img
-              src={img}
-              alt={`Image ${key}`}
-              className="img-fluid"
-              style={{ width: "80px", height: "80px" }}
-            />
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Container fluid>
+      <H3 text={"Category"}/>
+      <Slider
+        swiperClassName={"sample-slider w-100 mt-4"}
+        autoPlay={{
+          delay: 0,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false
+        }}
+        style={{
+          borderRadius: "25px"
+        }}
+        spaceBetween={10}
+        speed={7000}
+        breakPoints={{
+          375: {
+            slidesPerView: 4,
+            spaceBetween: 10
+          },
+          850: {
+            slidesPerView: 5,
+            spaceBetween: 10
+          },
+          992: {
+            slidesPerView: 6,
+            spaceBetween: 10
+          }
+        }}
+        loop={true}
+        width={80}
+        height={80}
+        cardList={cardList}
+      />
+    </Container>
   );
 };
 
-export default Category;
+export default ProductCategory;

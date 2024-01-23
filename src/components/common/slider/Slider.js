@@ -13,7 +13,11 @@ export default function SampleSlider({
   speed,
   breakPoints,
   loop,
-  cardList
+  cardList,
+  navigation,
+  direction,
+  width,
+  height
 }) {
   const Navigate = useNavigate();
   const onClick = parameter => {
@@ -30,6 +34,8 @@ export default function SampleSlider({
         speed={speed}
         breakpoints={breakPoints}
         loop={loop}
+        navigation={navigation}
+        direction={direction}
       >
         {cardList.map((item, key) => {
           return (
@@ -39,6 +45,8 @@ export default function SampleSlider({
                 overlay={true}
                 onclick={onClick}
                 parameter={item.title}
+                width={width}
+                height={height}
               />
             </SwiperSlide>
           );
@@ -56,5 +64,9 @@ SampleSlider.propTypes = {
   speed: PropTypes.number,
   breakPoints: PropTypes.object,
   loop: PropTypes.bool,
-  cardList: PropTypes.array
+  cardList: PropTypes.array,
+  navigation: PropTypes.object,
+  direction: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number
 };
