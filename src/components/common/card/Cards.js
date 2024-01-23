@@ -26,9 +26,7 @@ const Cards = ({
       style={
         cardStyle || {
           borderRadius: "25px",
-          border: "none",
-          width: "80px",
-          height: "80px"
+          border: "none"
         }
       }
       onClick={() => {

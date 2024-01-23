@@ -17,7 +17,8 @@ export default function SampleSlider({
   navigation,
   direction,
   width,
-  height
+  height,
+  cardStyle
 }) {
   const Navigate = useNavigate();
   const onClick = parameter => {
@@ -43,6 +44,7 @@ export default function SampleSlider({
               <Cards
                 img={item.img}
                 overlay={true}
+                cardStyle={cardStyle}
                 onclick={onClick}
                 parameter={item.title}
                 width={width}
@@ -68,5 +70,6 @@ SampleSlider.propTypes = {
   navigation: PropTypes.object,
   direction: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  cardStyle: PropTypes.object
 };

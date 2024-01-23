@@ -64,6 +64,12 @@ const ProductCategory = () => {
             spaceBetween: 10
           }
         }}
+        cardStyle={{
+          borderRadius: "25px",
+          width: "80px",
+          height: "80px",
+          border: "none"
+        }}
         loop={true}
         width={80}
         height={80}
