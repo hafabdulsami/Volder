@@ -39,7 +39,7 @@ const ProductCategory = () => {
     <Container fluid>
       <H3 text={"Product Category"} />
       <Slider
-        swiperClassName={"sample-slider w-100"}
+        swiperClassName={"sample-slider w-100 py-4"}
         autoPlay={{
           delay: 0,
           pauseOnMouseEnter: true,

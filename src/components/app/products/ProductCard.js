@@ -105,7 +105,6 @@ const ProductCard = ({ search, params }) => {
           <Col key={key}>
             <Cards
               img={product.img}
-              cardStyle={{ borderRadius: "25px" }}
               overlay={false}
               Title={product.title}
               buttontext={"see more"}
