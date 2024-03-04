@@ -45,9 +45,6 @@ const ProductCategory = () => {
           pauseOnMouseEnter: true,
           disableOnInteraction: false
         }}
-        style={{
-          borderRadius: "25px"
-        }}
         spaceBetween={40}
         speed={7000}
         breakPoints={{

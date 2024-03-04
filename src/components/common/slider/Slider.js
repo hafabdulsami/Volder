@@ -44,6 +44,7 @@ export default function SampleSlider({
               <Cards
                 img={item.img}
                 overlay={true}
+                needButton={false}
                 cardStyle={cardStyle}
                 onclick={onClick}
                 parameter={item.title}

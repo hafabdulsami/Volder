@@ -11,13 +11,28 @@ const Featured = () => {
       <H3 text={"Featured"} />
       <Row xs={1} md={3} className="g-4">
         <Col>
-          <Cards img={collection.img1} overlay={true} />
+          <Cards
+            img={collection.bit}
+            overlay={true}
+            needButton={true}
+            overlayButtonText={"Learn Me"}
+          />
         </Col>
         <Col>
-          <Cards img={collection.img2} overlay={true} />
+          <Cards
+            img={collection.heatGun}
+            overlay={true}
+            needButton={true}
+            overlayButtonText={"Learn Me"}
+          />
         </Col>
         <Col>
-          <Cards img={collection.img3} overlay={true} />
+          <Cards
+            img={collection.lcdSeprater}
+            overlay={true}
+            needButton={true}
+            overlayButtonText={"Learn Me"}
+          />
         </Col>
       </Row>
     </Container>

@@ -38,6 +38,7 @@ const makeUsDiff = () => {
           return (
             <Col key={key}>
               <Cards
+                onclick={() => null}
                 img={data.img}
                 Title={data.Title}
                 description={data.Description}

@@ -10,7 +10,6 @@ const MainLayout = () => {
       <div className="content pb-0 m-3">
         <NavBar />
         <Outlet />
-        {/*------ Main Routes ------*/}
       </div>
       <div className="p-3" style={{ backgroundColor: "#F5F5F5" }}>
         <Footer />

@@ -17,7 +17,9 @@ const Cards = ({
   cardTitleClassname,
   onclick,
   parameter,
+  needButton,
   width,
+  overlayButtonText,
   height
 }) => {
   return (
@@ -26,14 +28,12 @@ const Cards = ({
       style={
         cardStyle || {
           borderRadius: "25px",
-          borderWidth: "3px",
+          borderWidth: "2px",
           borderColor: "#D9D9D9",
           boxShadow: " 10px 10px 5px #D9D9D9"
         }
       }
-      onClick={() => {
-        onclick(parameter);
-      }}
+      onClick={() => (onclick ? onclick(parameter) : null)}
     >
       <Card.Img
         variant="top"
@@ -47,13 +47,15 @@ const Cards = ({
       />
       {overlay ? (
         <Card.ImgOverlay>
-          <Button
-            style={{ borderRadius: "25px", marginTop: "10rem" }}
-            size="lg"
-            className="opacity-75 bg-white border-0 text-black"
-          >
-            Learn More
-          </Button>{" "}
+          {needButton && (
+            <Button
+              style={{ borderRadius: "25px", marginTop: "10rem" }}
+              size="lg"
+              className="opacity-75 bg-white border-0 text-black"
+            >
+              {overlayButtonText}
+            </Button>
+          )}
         </Card.ImgOverlay>
       ) : (
         <>
@@ -89,11 +91,13 @@ Cards.propTypes = {
   Title: PropTypes.string,
   description: PropTypes.string,
   overlay: PropTypes.bool,
+  needButton: PropTypes.bool,
   cardStyle: PropTypes.object,
   bulletPoint: PropTypes.array,
   buttontext: PropTypes.string,
   buttonStyle: PropTypes.object,
   buttonClass: PropTypes.string,
+  overlayButtonText: PropTypes.string,
   cardTitleClassname: PropTypes.string,
   onclick: PropTypes.func,
   parameter: PropTypes.any,

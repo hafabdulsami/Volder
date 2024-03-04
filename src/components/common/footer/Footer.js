@@ -12,7 +12,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 const Footer = () => {
   return (
     <Container fluid className="">
-      <Row xs={1} md={3} className="g-6 text-black">
+      <Row xs={1} md={3} className="m-0 g-6 text-black">
         <Col className="pb-3">
           <Row>
             <h4 className="p-0 fw-bold">Information</h4>
