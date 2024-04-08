@@ -8,7 +8,8 @@ const Navcollapse = ({
   navBarStyle,
   navClass,
   navStyle,
-  items
+  items,
+  buttonstyle
 }) => {
   const usenavigate = useNavigate();
   return (
@@ -29,7 +30,12 @@ const Navcollapse = ({
                 }
               }}
             >
-              {item.label}
+              <button
+                className="btn btn-outline-primary"
+                style={buttonstyle}
+              >
+                {item.label}
+              </button>
             </Nav.Link>
           );
         })}
@@ -43,7 +49,8 @@ Navcollapse.propTypes = {
   navBarClass: PropTypes.string,
   navBarStyle: PropTypes.object,
   navClass: PropTypes.string,
-  navStyle: PropTypes.object
+  navStyle: PropTypes.object,
+  buttonstyle: PropTypes.object
 };
 
 export default Navcollapse;

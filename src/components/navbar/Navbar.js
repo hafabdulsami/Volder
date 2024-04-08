@@ -31,17 +31,15 @@ function navBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navcollapse
-          navBarClass="justify-content-center"
-          navBarStyle={{ width: "60%" }}
-          navClass="gap-2 w-80"
+          navBarClass="justify-content-end"
+          navClass="gap-3"
+          buttonstyle={{
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "25px"
+          }}
           navStyle={{ fontWeight: "bolder" }}
           items={navBarRoutes[0].childer}
-        />
-        <Navcollapse
-          navBarClass={`justify-content-end ${isNavCollapsed ? "flex-row justify-content-end" : ""}`}
-          navBarStyle={{ width: "20%" }}
-          navClass={`test ${isNavCollapsed ? "gap-2" : ""}`}
-          items={navBarRoutes[1].childer}
         />
       </Container>
     </Navbar>

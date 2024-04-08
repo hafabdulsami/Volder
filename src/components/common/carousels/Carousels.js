@@ -1,84 +1,38 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+//import Carousel from "react-bootstrap/Carousel";
 import img1 from "../../../assets/img1.jpg";
 import img2 from "../../../assets/img2.jpg";
 import img3 from "../../../assets/img3.jpg";
+import { Carousel } from "react-responsive-carousel";
 //import Carouselsitem from "./Carouselsitem";
-
+import mm from "./mm.jpeg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Carousels = () => {
-  var imgList = [img1, img2, img3];
+  var imgList = [mm, img1, img3, img2];
   return (
-    <div
-      className="mt-2 carousels"
-      style={{ width: "100%", height: "30rem" }}
-    >
+    <div className="mt-2" style={{ width: "100%" }}>
       <Carousel
-        className=""
-        style={{
-          width: "100%"
-        }}
+        showArrows={true}
+        showStatus={false}
+        interval={3000}
+        dynamicHeight={true}
+        autoPlay={true}
+        showThumbs={false}
+        infiniteLoop={true}
+        showIndicators={false}
       >
-        {/*<Carouselsitem
-          imgList={list}
-          imgClassName={"w-100 h-40"}
-          imgStyle={{
-            borderRadius: "25px",
-            height: "30rem"
-          }}
-          interval={1000}
-          img3={img3}
-        />*/}
         {imgList.map((img, key) => (
-          <Carousel.Item key={key} interval={1000}>
+          <div key={key}>
             <img
-              className={"w-100 h-40 carousels"}
               src={img}
               style={{
                 borderRadius: "25px",
-                height: "30rem"
+                maxHeight: "30rem"
               }}
               alt={`Image ${key + 1}`}
             />
-          </Carousel.Item>
+          </div>
         ))}
-        {/*<Carousel.Item
-          interval={1000}
-          style={{
-            height: "40%",
-            width: "100%",
-            borderRadius: "25%"
-          }}
-        >
-          <img
-            className="w-100 h-100"
-            src={img2}
-            style={{ borderRadius: "25px" }}
-            alt="Image One"
-          />
-          <Carousel.Caption>
-            <h3>Label for first slide</h3>
-            <p>Sample Text for Image One</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item
-          interval={1000}
-          style={{
-            height: "40%",
-            width: "100%",
-            borderRadius: "25%"
-          }}
-        >
-          <img
-            className="d-block h-100 w-100"
-            src={img3}
-            style={{ borderRadius: "25px" }}
-            alt="Image three"
-          />
-          <Carousel.Caption>
-            <h3>Label for second slide</h3>
-            <p>Sample Text for Image Two</p>
-          </Carousel.Caption>
-        </Carousel.Item>*/}
       </Carousel>
     </div>
   );
