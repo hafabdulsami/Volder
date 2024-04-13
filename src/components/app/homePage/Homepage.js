@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Carousels from "../../common/carousels/Carousels";
 import MakeUsDiff from "./makeUsDiff";
 import Featured from "./Featured";
 import ProductCategory from "./ProductCategory";
-import { toastError } from "../../common/toastError";
-import { getHeroSectionLink } from "../../../@Endpoint/getCalls";
+import { Store } from "../../../@store/Store";
+
 const Homepage = () => {
-  const [heroSection, setHeroSection] = useState([]);
-  useEffect(() => {
-    getHeroSection();
-  }, []);
-  const getHeroSection = () => {
-    getHeroSectionLink("Bearer ")
-      .then(res => {
-        setHeroSection(res.data.heroSectionList);
-      })
-      .catch(err => {
-        toastError(err);
-      });
-  };
+  const { state } = useContext(Store);
   return (
     <div>
       <div>
-        <Carousels heroSection={heroSection} />
+        <Carousels heroSection={state.heroSection} />
       </div>
       <div>
         <MakeUsDiff />

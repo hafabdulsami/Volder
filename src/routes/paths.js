@@ -5,6 +5,7 @@ const routes = {
   homePage: "/",
   product: "/products/:category",
   contactUs: "/contactUs"
+
   //add_sale: "/add-sale/:_id",
   //edit_sale: "/edit-sale/:_id",
   //list_sale: "/list-sale"
