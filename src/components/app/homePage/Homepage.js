@@ -13,7 +13,7 @@ const Homepage = () => {
         <Carousels heroSection={state.heroSection} />
       </div>
       <div>
-        <MakeUsDiff />
+        <MakeUsDiff qualitiesList={state.qualitiesList} />
         <ProductCategory />
         <Featured />
       </div>

@@ -1,9 +1,11 @@
 // reducers.js
 
 const addHeroSection = (state, data) => {
+  console.log(data);
   return {
     ...state,
-    heroSection: data
+    heroSection: data.heroSectionList,
+    qualitiesList: data.qualitiesList
   };
 };
 export const reducer = (state, action) => {

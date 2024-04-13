@@ -7,18 +7,15 @@ import { getHeroSectionLink } from "../@Endpoint/getCalls";
 import { Store } from "../@store/Store";
 import { setHeroSection } from "../@store/Actions";
 const MainLayout = () => {
-  const { dispatch, state } = useContext(Store);
+  const { dispatch } = useContext(Store);
   const [loading, setloading] = useState([]);
   useEffect(() => {
     getloading();
   }, []);
-  useEffect(() => {
-    console.log(state); // Log the state whenever it changes
-  }, [state]);
   const getloading = () => {
     getHeroSectionLink("Bearer ")
       .then(res => {
-        setHeroSection(res.data.heroSectionList, dispatch);
+        setHeroSection(res.data.loadingData, dispatch);
         setloading(false);
       })
       .catch(err => {

@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { reducer } from "./Reducers";
 
 const initialState = {
-  heroSection: []
+  heroSection: [],
+  qualitiesList: []
 };
 
 export const Store = createContext(initialState);
