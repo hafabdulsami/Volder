@@ -4,65 +4,27 @@ import H3 from "../../common/heading/H3";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Cards from "../../common/card/Cards";
-import collection from "../../../assets/collection";
 import CPagination from "../../common/CPagination";
 import Flex from "../../common/Flex";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const ProductCard = ({ search, params }) => {
+const ProductCard = ({ search, params, productList }) => {
   const Navigate = useNavigate();
-  const initialProductList = [
-    { id: 1, img: collection.bit, title: "Bit", category: "Bit" },
-    {
-      id: 2,
-      img: collection.heatGun,
-      title: "Heat Gun",
-      category: "Heat Gun"
-    },
-    {
-      id: 3,
-      img: collection.laminationGun,
-      title: "Lamination Gun",
-      category: "Lamination Gun"
-    },
-    {
-      id: 4,
-      img: collection.lcdSeprater,
-      title: "LCD Separator",
-      category: "LCD Separator"
-    },
-    {
-      id: 5,
-      img: collection.powerSupply,
-      title: "Power Supply",
-      category: "Power Supply"
-    },
-    {
-      id: 6,
-      img: collection.solderWire,
-      title: "Solder Wire",
-      category: "Solder Wire"
-    },
-    {
-      id: 7,
-      img: collection.solderingIron,
-      title: "Soldering Iron",
-      category: "Soldering Iron"
-    }
-  ];
 
   const productsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
-  const [productList, setProductList] = useState(initialProductList);
+  const [products, setProductList] = useState(productList);
 
   useEffect(() => {
     // Filter products based on category initially
-    let filteredProducts = initialProductList;
+    let filteredProducts = productList;
 
     if (params && params.toLowerCase() !== "all") {
-      filteredProducts = initialProductList.filter(product =>
-        product.category.toLowerCase().includes(params.toLowerCase())
+      filteredProducts = productList.filter(product =>
+        product.categoryId
+          .toLowerCase()
+          .includes(params.toLowerCase())
       );
     }
 
@@ -78,13 +40,13 @@ const ProductCard = ({ search, params }) => {
   }, [params, search]);
 
   const totalPagesFiltered = Math.ceil(
-    productList.length / productsPerPage
+    products.length / productsPerPage
   );
 
   const indexOfLastFilteredProduct = currentPage * productsPerPage;
   const indexOfFirstFilteredProduct =
     indexOfLastFilteredProduct - productsPerPage;
-  const currentFilteredProducts = productList.slice(
+  const currentFilteredProducts = products.slice(
     indexOfFirstFilteredProduct,
     indexOfLastFilteredProduct
   );
@@ -104,9 +66,9 @@ const ProductCard = ({ search, params }) => {
         {currentFilteredProducts.map((product, key) => (
           <Col key={key}>
             <Cards
-              img={product.img}
+              img={product.Productimages[0].preview}
               overlay={false}
-              Title={product.title}
+              Title={product.name}
               buttontext={"see more"}
               buttonStyle={{
                 borderRadius: "25px",
@@ -133,7 +95,8 @@ const ProductCard = ({ search, params }) => {
 
 ProductCard.propTypes = {
   search: PropTypes.string,
-  params: PropTypes.string
+  params: PropTypes.string,
+  productList: PropTypes.array
 };
 
 export default ProductCard;

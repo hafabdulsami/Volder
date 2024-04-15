@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
-
+import "./style.css";
 import Button from "react-bootstrap/Button";
 import BulletPoints from "../BulletPoints";
 const Cards = ({
@@ -23,66 +23,69 @@ const Cards = ({
   height
 }) => {
   return (
-    <Card
-      className=""
-      style={
-        cardStyle || {
-          borderRadius: "25px",
-          borderWidth: "2px",
-          borderColor: "#D9D9D9",
-          boxShadow: " 10px 10px 5px #D9D9D9"
+    <div className="l">
+      <Card
+        className=""
+        style={
+          cardStyle || {
+            borderRadius: "25px",
+            borderWidth: "2px",
+            borderColor: "#D9D9D9"
+          }
         }
-      }
-      onClick={() => (onclick ? onclick(parameter) : null)}
-    >
-      <Card.Img
-        variant="top"
-        className="p-2"
-        style={{
-          borderRadius: "25px"
-        }}
-        src={img}
-        height={width || 240}
-        width={height || 384}
-      />
-      {overlay ? (
-        <Card.ImgOverlay>
-          {needButton && (
-            <Button
-              style={{ borderRadius: "25px", marginTop: "10rem" }}
-              size="lg"
-              className="opacity-75 bg-white border-0 text-black"
-            >
-              {overlayButtonText}
-            </Button>
-          )}
-        </Card.ImgOverlay>
-      ) : (
-        <>
-          <Card.Body>
-            <Card.Title className={cardTitleClassname || "fw-bold"}>
-              {Title}
-            </Card.Title>
-
-            {bulletPoint && (
-              <Card.Text>
-                <BulletPoints bulletPoint={bulletPoint} />
-              </Card.Text>
-            )}
-            {buttontext && (
+        onClick={() => (onclick ? onclick(parameter) : null)}
+      >
+        <Card.Img
+          variant="top"
+          className="p-2"
+          style={{
+            borderRadius: "25px"
+          }}
+          src={img}
+          height={width || 240}
+          width={height || 384}
+        />
+        {overlay ? (
+          <Card.ImgOverlay>
+            {needButton && (
               <Button
-                style={buttonStyle}
+                style={{ borderRadius: "25px", marginTop: "10rem" }}
                 size="lg"
-                className={buttonClass}
+                className="opacity-75 bg-white border-0 text-black"
               >
-                {buttontext}
+                {overlayButtonText}
               </Button>
             )}
-            {description && <Card.Text>{description}</Card.Text>}
-          </Card.Body>
-        </>
-      )}
-    </Card>
+          </Card.ImgOverlay>
+        ) : (
+          <>
+            <Card.Body>
+              <Card.Title
+                className={cardTitleClassname || "fw-bold"}
+              >
+                {Title}
+              </Card.Title>
+
+              {bulletPoint && (
+                <Card.Text>
+                  <BulletPoints bulletPoint={bulletPoint} />
+                </Card.Text>
+              )}
+              {buttontext && (
+                <Button
+                  style={buttonStyle}
+                  size="lg"
+                  className={buttonClass}
+                >
+                  {buttontext}
+                </Button>
+              )}
+              {description && <Card.Text>{description}</Card.Text>}
+            </Card.Body>
+          </>
+        )}
+      </Card>
+    </div>
   );
 };
 

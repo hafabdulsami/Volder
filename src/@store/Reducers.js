@@ -5,7 +5,9 @@ const addHeroSection = (state, data) => {
   return {
     ...state,
     heroSection: data.heroSectionList,
-    qualitiesList: data.qualitiesList
+    qualitiesList: data.qualitiesList,
+    categoryList: data.categoryList,
+    productList: data.productList
   };
 };
 export const reducer = (state, action) => {

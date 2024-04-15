@@ -5,7 +5,8 @@ import { reducer } from "./Reducers";
 
 const initialState = {
   heroSection: [],
-  qualitiesList: []
+  qualitiesList: [],
+  categoryList: []
 };
 
 export const Store = createContext(initialState);

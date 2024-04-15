@@ -14,7 +14,7 @@ const Homepage = () => {
       </div>
       <div>
         <MakeUsDiff qualitiesList={state.qualitiesList} />
-        <ProductCategory />
+        <ProductCategory categoryList={state.categoryList} />
         <Featured />
       </div>
     </div>

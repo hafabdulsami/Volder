@@ -2,39 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import H3 from "../../common/heading/H3";
 import Slider from "../../common/slider/Slider";
-import collection from "../../../assets/collection";
-const ProductCategory = () => {
-  const cardList = [
-    {
-      img: collection.bit,
-      title: "Bit"
-    },
-    {
-      img: collection.heatGun,
-      title: "Heat Gun"
-    },
-    {
-      img: collection.laminationGun,
-      title: "Lamination Gun"
-    },
-    {
-      img: collection.lcdSeprater,
-      title: "LCD Separator"
-    },
-    {
-      img: collection.powerSupply,
-      title: "Power Supply"
-    },
-    {
-      img: collection.solderWire,
-      title: "Solder Wire"
-    },
-    {
-      img: collection.solderingIron,
-      title: "Soldering Iron"
-    }
-  ];
-
+import PropTypes from "prop-types";
+const ProductCategory = ({ categoryList }) => {
   return (
     <Container fluid>
       <H3 text={"Product Category"} />
@@ -62,10 +31,14 @@ const ProductCategory = () => {
           }
         }}
         loop={true}
-        cardList={cardList}
+        cardList={categoryList}
       />
     </Container>
   );
+};
+
+ProductCategory.propTypes = {
+  categoryList: PropTypes.array
 };
 
 export default ProductCategory;

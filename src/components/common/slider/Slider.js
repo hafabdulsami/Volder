@@ -42,12 +42,12 @@ export default function SampleSlider({
           return (
             <SwiperSlide key={key}>
               <Cards
-                img={item.img}
+                img={item?.Categoryimages[0].preview}
                 overlay={true}
                 needButton={false}
                 cardStyle={cardStyle}
                 onclick={onClick}
-                parameter={item.title}
+                parameter={item.id}
                 width={width}
                 height={height}
               />
