@@ -11,12 +11,12 @@ const Cards = ({
   overlay,
   cardStyle,
   bulletPoint,
+  cardClass,
   buttontext,
   buttonStyle,
   buttonClass,
   cardTitleClassname,
-  onclick,
-  parameter,
+  onClick,
   needButton,
   width,
   overlayButtonText,
@@ -25,7 +25,7 @@ const Cards = ({
   return (
     <div className="l">
       <Card
-        className=""
+        className={cardClass}
         style={
           cardStyle || {
             borderRadius: "25px",
@@ -33,17 +33,17 @@ const Cards = ({
             borderColor: "#D9D9D9"
           }
         }
-        onClick={() => (onclick ? onclick(parameter) : null)}
+        onClick={onClick}
       >
         <Card.Img
           variant="top"
-          className="p-2"
+          className=""
           style={{
             borderRadius: "25px"
           }}
           src={img}
-          height={width || 240}
-          width={height || 384}
+          height={height || 240}
+          width={width || 384}
         />
         {overlay ? (
           <Card.ImgOverlay>
@@ -95,14 +95,15 @@ Cards.propTypes = {
   description: PropTypes.string,
   overlay: PropTypes.bool,
   needButton: PropTypes.bool,
-  cardStyle: PropTypes.object,
+  cardStyle: PropTypes.string,
   bulletPoint: PropTypes.array,
+  cardClass: PropTypes.object,
   buttontext: PropTypes.string,
   buttonStyle: PropTypes.object,
   buttonClass: PropTypes.string,
   overlayButtonText: PropTypes.string,
   cardTitleClassname: PropTypes.string,
-  onclick: PropTypes.func,
+  onClick: PropTypes.func,
   parameter: PropTypes.any,
   width: PropTypes.number,
   height: PropTypes.number

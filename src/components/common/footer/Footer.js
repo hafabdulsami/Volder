@@ -22,9 +22,23 @@ const Footer = () => {
             <h4 className="p-0 fw-bold">Information</h4>
           </Row>
 
-          <Row>lorem ipsem</Row>
-          <Row>lorem ipsem</Row>
-          <Row>lorem ipsem</Row>
+          <Row
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Home
+          </Row>
+          <Row
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              navigate("/products/all");
+            }}
+          >
+            Products
+          </Row>
+          <Row>Contact Us</Row>
         </Col>
         <Col className="pb-3">
           <Row>
@@ -48,9 +62,23 @@ const Footer = () => {
           <Row>
             <h4 className="p-0 fw-bold">Contact Info</h4>
           </Row>
-          <Row>lorem ipsem</Row>
-          <Row>lorem ipsem</Row>
-          <Row>lorem ipsem</Row>
+          {state.socialMediaList.map((item, key) => {
+            const cleanedLink = item.link.replace(
+              /^https?:\/\//,
+              ""
+            ); // Remove "https://" from the beginning of the link
+            return (
+              <Row
+                style={{ cursor: "pointer" }}
+                key={key}
+                onClick={() => {
+                  window.location.href = item.link;
+                }}
+              >
+                {cleanedLink}
+              </Row>
+            );
+          })}
         </Col>
       </Row>
       <Row className="justify-content-center my-4">

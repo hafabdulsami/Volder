@@ -6,7 +6,9 @@ import { reducer } from "./Reducers";
 const initialState = {
   heroSection: [],
   qualitiesList: [],
-  categoryList: []
+  categoryList: [],
+  featuredProducts: [],
+  socialMediaList: []
 };
 
 export const Store = createContext(initialState);

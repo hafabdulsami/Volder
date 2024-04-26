@@ -7,7 +7,9 @@ const addHeroSection = (state, data) => {
     heroSection: data.heroSectionList,
     qualitiesList: data.qualitiesList,
     categoryList: data.categoryList,
-    productList: data.productList
+    productList: data.productList,
+    featuredProducts: data.featuredProducts,
+    socialMediaList: data.socialMediaList
   };
 };
 export const reducer = (state, action) => {

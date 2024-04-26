@@ -9,7 +9,7 @@ import powerSupply from "./powersupply.png";
 import solderingIron from "./solderingIron.png";
 import solderWire from "./solderWire.png";
 
-export default {
+export default [
   img1,
   img2,
   img3,
@@ -20,4 +20,4 @@ export default {
   powerSupply,
   solderingIron,
   solderWire
-};
+];

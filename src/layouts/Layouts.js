@@ -12,8 +12,8 @@ const Layouts = () => {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Homepage />} />
-          <Route path={path.product} element={<Product />} />
-          <Route path={"/m"} element={<ProductDesc />} />
+          <Route path={path.products} element={<Product />} />
+          <Route path={path.product} element={<ProductDesc />} />
         </Route>
       </Routes>
     </>

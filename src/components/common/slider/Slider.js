@@ -3,8 +3,6 @@ import "swiper/css";
 import { Autoplay } from "swiper";
 import PropTypes from "prop-types";
 import Cards from "../card/Cards";
-import { useNavigate } from "react-router-dom";
-
 export default function SampleSlider({
   swiperClassName,
   autoPlay,
@@ -18,12 +16,9 @@ export default function SampleSlider({
   direction,
   width,
   height,
+  onClick,
   cardStyle
 }) {
-  const Navigate = useNavigate();
-  const onClick = parameter => {
-    Navigate("/products/" + parameter);
-  };
   return (
     <div>
       <Swiper
@@ -42,11 +37,15 @@ export default function SampleSlider({
           return (
             <SwiperSlide key={key}>
               <Cards
-                img={item?.Categoryimages[0].preview}
+                img={
+                  item?.Categoryimages?.[0]?.preview ||
+                  item.preview ||
+                  item
+                }
                 overlay={true}
                 needButton={false}
                 cardStyle={cardStyle}
-                onclick={onClick}
+                onClick={() => onClick(item)}
                 parameter={item.id}
                 width={width}
                 height={height}
@@ -72,5 +71,6 @@ SampleSlider.propTypes = {
   direction: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
+  onClick: PropTypes.func,
   cardStyle: PropTypes.object
 };

@@ -49,8 +49,8 @@ export const getProductList = async header => {
   return axios(config(null, "/getProduct", header));
 };
 
-export const getProductByID = async (data, header) => {
-  return axios(config(data, "/getProduct?id=" + data.id, header));
+export const getProductByID = async (id, header) => {
+  return axios(config(id, "/getProduct?id=" + id, header));
 };
 
 export const getQualityList = async header => {

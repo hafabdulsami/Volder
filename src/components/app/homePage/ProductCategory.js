@@ -3,7 +3,14 @@ import Container from "react-bootstrap/Container";
 import H3 from "../../common/heading/H3";
 import Slider from "../../common/slider/Slider";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+
 const ProductCategory = ({ categoryList }) => {
+  const Navigate = useNavigate();
+  const onClick = parameter => {
+    Navigate("/products/" + parameter.id);
+  };
+
   return (
     <Container fluid>
       <H3 text={"Product Category"} />
@@ -31,6 +38,7 @@ const ProductCategory = ({ categoryList }) => {
           }
         }}
         loop={true}
+        onClick={onClick}
         cardList={categoryList}
       />
     </Container>

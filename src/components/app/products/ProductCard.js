@@ -31,7 +31,7 @@ const ProductCard = ({ search, params, productList }) => {
     if (search) {
       // Further filter based on search
       filteredProducts = filteredProducts.filter(product =>
-        product.title.toLowerCase().includes(search.toLowerCase())
+        product.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
@@ -56,7 +56,7 @@ const ProductCard = ({ search, params, productList }) => {
   };
 
   const onClick = parameter => {
-    Navigate("/products/" + parameter);
+    Navigate("/product/" + parameter);
   };
 
   return (
@@ -66,6 +66,7 @@ const ProductCard = ({ search, params, productList }) => {
         {currentFilteredProducts.map((product, key) => (
           <Col key={key}>
             <Cards
+              cardClass={"p-2"}
               img={product.Productimages[0].preview}
               overlay={false}
               Title={product.name}
@@ -74,10 +75,12 @@ const ProductCard = ({ search, params, productList }) => {
                 borderRadius: "25px",
                 fontSize: "1rem"
               }}
+              onClick={() => {
+                onClick(product.id);
+              }}
               buttonClass={"bg-blue border-0 text-white w-100"}
               cardTitleClassname={"fs-6 fw-bold"}
               parameter={product.id}
-              onclick={onClick}
             />
           </Col>
         ))}

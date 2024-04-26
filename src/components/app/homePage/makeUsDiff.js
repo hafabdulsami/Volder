@@ -15,6 +15,7 @@ const makeUsDiff = ({ qualitiesList }) => {
             <Col key={key}>
               <Cards
                 onclick={() => null}
+                cardClass={"p-2"}
                 img={data.Qualityimages[0].preview}
                 Title={data.name}
                 description={data.description}
