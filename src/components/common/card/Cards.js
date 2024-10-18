@@ -1,9 +1,8 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
-import "./style.css";
-import Button from "react-bootstrap/Button";
 import BulletPoints from "../BulletPoints";
+import "./style.css";
+
 const Cards = ({
   img,
   Title,
@@ -23,9 +22,9 @@ const Cards = ({
   height
 }) => {
   return (
-    <div className="l">
-      <Card
-        className={cardClass}
+    <div className="p-4">
+      <div
+        className={`relative ${cardClass || ""}`}
         style={
           cardStyle || {
             borderRadius: "25px",
@@ -35,56 +34,53 @@ const Cards = ({
         }
         onClick={onClick}
       >
-        <Card.Img
-          variant="top"
-          className=""
+        <img
+          className="w-full rounded-t-lg"
           style={{
             borderRadius: "25px"
           }}
           src={img}
+          alt="Card"
           height={height || 240}
           width={width || 384}
         />
         {overlay ? (
-          <Card.ImgOverlay>
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             {needButton && (
-              <Button
-                style={{ borderRadius: "25px", marginTop: "10rem" }}
-                size="lg"
-                className="opacity-75 bg-white border-0 text-black"
+              <button
+                className="opacity-75 bg-white text-black rounded-full py-2 px-4"
+                style={{ marginTop: "10rem" }}
               >
                 {overlayButtonText}
-              </Button>
+              </button>
             )}
-          </Card.ImgOverlay>
+          </div>
         ) : (
-          <>
-            <Card.Body>
-              <Card.Title
-                className={cardTitleClassname || "fw-bold"}
+          <div className="p-4 bg-white rounded-b-lg">
+            <h2
+              className={cardTitleClassname || "font-bold text-xl"}
+            >
+              {Title}
+            </h2>
+            {bulletPoint && (
+              <div className="my-2">
+                <BulletPoints bulletPoint={bulletPoint} />
+              </div>
+            )}
+            {buttontext && (
+              <button
+                className={`py-2 px-4 mt-4 ${buttonClass || ""}`}
+                style={buttonStyle}
               >
-                {Title}
-              </Card.Title>
-
-              {bulletPoint && (
-                <Card.Text>
-                  <BulletPoints bulletPoint={bulletPoint} />
-                </Card.Text>
-              )}
-              {buttontext && (
-                <Button
-                  style={buttonStyle}
-                  size="lg"
-                  className={buttonClass}
-                >
-                  {buttontext}
-                </Button>
-              )}
-              {description && <Card.Text>{description}</Card.Text>}
-            </Card.Body>
-          </>
+                {buttontext}
+              </button>
+            )}
+            {description && (
+              <p className="mt-2 text-gray-600">{description}</p>
+            )}
+          </div>
         )}
-      </Card>
+      </div>
     </div>
   );
 };
@@ -95,9 +91,9 @@ Cards.propTypes = {
   description: PropTypes.string,
   overlay: PropTypes.bool,
   needButton: PropTypes.bool,
-  cardStyle: PropTypes.string,
+  cardStyle: PropTypes.object,
   bulletPoint: PropTypes.array,
-  cardClass: PropTypes.object,
+  cardClass: PropTypes.string,
   buttontext: PropTypes.string,
   buttonStyle: PropTypes.object,
   buttonClass: PropTypes.string,
